@@ -3,7 +3,7 @@ const navBtn = document.querySelector("#nav-btn");
 const closeBtn = document.querySelector("#close-btn");
 const sidebar = document.querySelector("#sidebar");
 const date = document.querySelector("#date");
-const btnEl = document.querySelectorAll(".btn");
+const btnEls = document.querySelectorAll(".btn");
 
 // add fixed class to navbar
 window.addEventListener("scroll", function () {
@@ -24,12 +24,11 @@ closeBtn.addEventListener("click", function () {
 date.innerHTML = new Date().getFullYear();
 
 //button ripple effect
-for(let i = 0, len = btnEl.length; i < len; i++){
-  btnEl[i].addEventListener("mouseover",(event)=>{
-    const x = (event.pageX - btnEl[i].offsetLeft);
-    const y = (event.pageY - btnEl[i].offsetTop);
-    btnEl[i].style.setProperty("--xPos",x + "px");
-    btnEl[i].style.setProperty("--yPos",y + "px");
+btnEls.forEach(btnEl=>{
+  btnEl.addEventListener("mouseover",(event)=>{
+    const x = (event.pageX - btnEl.offsetLeft);
+    const y = (event.pageY - btnEl.offsetTop);
+    btnEl.style.setProperty("--xPos",x + "px");
+    btnEl.style.setProperty("--yPos",y + "px");
   })
-}
-
+})

@@ -164,16 +164,22 @@ p {
   transform: translate(-50%,-50%);
   border-radius: var(--radius);
   transition: width 0.5s, height 0.5s;
- 
+ /* animation: scale 0.5s ease-out; */
 }
 .btn:hover {
   color: var(--clr-primary-1);
-  /* background: var(--clr-primary-7); */
+  background: var(--clr-primary-7);
 }
 .btn:hover::before{
   width: 300px;
   height: 300px;
 }
+/* @keyframes scale {
+  to {
+    transform: translate(-50%,-50%) scale(3);
+    opacity: 0;
+  }
+} */
 /* section */
 .section {
   padding: 5rem 0;
@@ -422,6 +428,24 @@ Hero
 About
 ===============
 */
+.about {
+  position: relative;
+}
+.video-container {
+ display: none;
+}
+.about::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--clr-white);
+  /* background: rgba(250, 250, 250, 0.8); */
+  opacity: 0.7;
+  z-index: -1;
+}
 .about-title{
   text-align: left;
   margin-bottom: 2rem;
@@ -436,10 +460,24 @@ About
 .about-img{
   justify-self: center;
 }
+.about-info p {
+  color: var(--clr-grey-1);
+}
 @media screen and (min-width: 992px) {
+  .video-container {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+  }
   .about-center {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    
   }
   .about-img{
     position: relative;
@@ -447,8 +485,18 @@ About
   .about-img::before{
     left: -2rem;
   }
+  .about-info-wrap{
+    filter: drop-shadow(-1px 6px 3px rgba(50, 50, 0, 0.5));
+  }
   .about-info{
     align-self: center;
+    background: var(--clr-primary-10);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 40% 76%, 23% 100%, 27% 75%, 0% 75%);
+    padding: 30px 30px 130px 30px;
+    /* padding: 30px; */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    
   }
 }
 /*

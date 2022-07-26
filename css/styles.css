@@ -598,6 +598,58 @@ Work Experience
 }
 /*
 =============== 
+Certificates
+===============
+*/
+.certificates{
+  background: var(--clr-primary-5);
+}
+.card{
+  height: 27rem;
+  position: relative;
+  perspective: 1500px;
+}
+.card-side{
+  transition: all 2s linear;
+  backface-visibility: hidden;
+  position:  absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius);
+}
+.card-front{
+  background: var(--clr-white);
+}
+.card-back{
+  background: var(--clr-grey-10);
+  transform: rotateY(180deg);
+  display: grid;
+  place-items: center;
+}
+.card:hover .card-front{
+  transform: rotateY(-180deg);
+}
+.card:hover .card-back{
+  transform: rotateY(0);
+}
+.card-info{
+  padding: 1rem 1.5rem;
+}
+.card-front img {
+  height: 17rem;
+  object-fit: scale-down;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+}
+.certificates-center{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 3rem 1rem;
+}
+/*
+=============== 
 Footer
 ===============
 */
